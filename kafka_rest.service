@@ -1,0 +1,16 @@
+#/usr/local/bin/docker-compose
+
+[Unit]
+Description=Kafka-rest docker compose systemd
+Documentation=https://docs.docker.com
+After=network.target docker.socket
+Requires=docker.socket
+
+[Service]
+Restart=always
+RestartSec=30
+ExecStart=/usr/local/bin/docker-compose -f ./docker-compose.yml up
+ExecStop=/usr/local/bin/docker-compose -f  ./docker-compose.yml down
+
+[Install]
+WantedBy=multi-user.target

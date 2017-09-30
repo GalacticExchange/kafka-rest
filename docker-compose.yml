@@ -1,0 +1,29 @@
+version: '2.1'
+
+services:
+
+  kafka-rest:
+    build: .
+
+    ports:
+      - "443:8082"
+
+    environment:
+      #- KAFKA_REST_ZOOKEEPER_CONNECT=51.0.0.61:2181
+      - KAFKA_REST_ZOOKEEPER_CONNECT=172.17.0.3:2181
+
+    network_mode: bridge
+
+    #networks:
+    #  - bridge
+    #  - overlay
+
+#networks:
+#  overlay:
+#    external:
+#      name: overlay
+
+#  bridge:
+#    external:
+#      name: bridge
+
